@@ -59,7 +59,7 @@ function closeMenu() {
           :class="{ 'burger--open': isMenuOpen }"
           type="button"
           :aria-expanded="isMenuOpen"
-          aria-label="Открыть меню"
+          :aria-label="isMenuOpen ? 'Закрыть меню' : 'Открыть меню'"
           @click="isMenuOpen = !isMenuOpen"
         >
           <span />
@@ -204,12 +204,16 @@ function closeMenu() {
 /* Burger */
 
 .burger {
+  position: relative;
+
   display: none;
 
   width: 40px;
   height: 40px;
 
-  padding: 9px;
+  padding: 0;
+
+  flex-shrink: 0;
 
   border: 1px solid var(--color-line);
   border-radius: 10px;
@@ -220,26 +224,42 @@ function closeMenu() {
 }
 
 .burger span {
-  display: block;
+  position: absolute;
+  left: 50%;
 
-  width: 100%;
+  width: 18px;
   height: 2px;
-
-  flex-shrink: 0;
 
   border-radius: 999px;
 
   background: var(--color-text);
 
+  transform: translateX(-50%);
+
   transition:
+    top 0.2s ease,
     transform 0.2s ease,
     opacity 0.2s ease;
+}
+
+.burger span:nth-child(1) {
+  top: 13px;
+}
+
+.burger span:nth-child(2) {
+  top: 19px;
+}
+
+.burger span:nth-child(3) {
+  top: 25px;
 }
 
 /* Burger → X */
 
 .burger--open span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+  top: 19px;
+
+  transform: translateX(-50%) rotate(45deg);
 }
 
 .burger--open span:nth-child(2) {
@@ -247,7 +267,9 @@ function closeMenu() {
 }
 
 .burger--open span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+  top: 19px;
+
+  transform: translateX(-50%) rotate(-45deg);
 }
 
 /* Mobile menu */
@@ -296,21 +318,62 @@ function closeMenu() {
   }
 
   .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: block;
   }
 }
 
 /* Mobile */
 
 @media (max-width: 600px) {
+  .header__inner {
+    gap: 16px;
+  }
+
   .logo__text {
-    font-size: 12px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .logo__mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo__mark svg {
+    width: 19px;
+    height: 19px;
   }
 
   .header__demo {
     display: none;
+  }
+
+  .burger {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 9px;
+  }
+
+  .burger span {
+    width: 17px;
+  }
+
+  .burger span:nth-child(1) {
+    top: 12px;
+  }
+
+  .burger span:nth-child(2) {
+    top: 18px;
+  }
+
+  .burger span:nth-child(3) {
+    top: 24px;
+  }
+
+  .burger--open span:nth-child(1),
+  .burger--open span:nth-child(3) {
+    top: 18px;
   }
 }
 </style>
