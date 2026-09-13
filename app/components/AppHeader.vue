@@ -2,10 +2,22 @@
 const isMenuOpen = ref(false);
 
 const links = [
-  { label: "О платформе", href: "#about" },
-  { label: "Возможности", href: "#features" },
-  { label: "Как работает", href: "#how" },
-  { label: "Безопасность", href: "#security" },
+  {
+    label: "О платформе",
+    href: "#about",
+  },
+  {
+    label: "Возможности",
+    href: "#features",
+  },
+  {
+    label: "Как работает",
+    href: "#how",
+  },
+  {
+    label: "Безопасность",
+    href: "#security",
+  },
 ];
 
 function closeMenu() {
@@ -40,10 +52,11 @@ function closeMenu() {
       </nav>
 
       <div class="header__actions">
-        <a href="#demo" class="button"> Демонстрация </a>
+        <a href="#demo" class="button header__demo"> Демонстрация </a>
 
         <button
           class="burger"
+          :class="{ 'burger--open': isMenuOpen }"
           type="button"
           :aria-expanded="isMenuOpen"
           aria-label="Открыть меню"
@@ -68,7 +81,11 @@ function closeMenu() {
           {{ link.label }}
         </a>
 
-        <a href="#demo" class="button button--primary" @click="closeMenu">
+        <a
+          href="#demo"
+          class="button button--primary mobile-menu__demo"
+          @click="closeMenu"
+        >
           Запросить демонстрацию
         </a>
       </div>
@@ -79,44 +96,46 @@ function closeMenu() {
 <style scoped>
 .header {
   position: fixed;
+  z-index: 100;
   top: 0;
+  right: 0;
   left: 0;
-  z-index: 50;
 
-  width: 100%;
+  height: var(--header-height);
 
-  border-bottom: 1px solid rgb(255 255 255 / 6%);
+  border-bottom: 1px solid var(--color-line);
 
   background: rgb(7 10 18 / 82%);
-
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
 }
 
 .header__inner {
+  height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  height: 76px;
+  gap: 32px;
 }
+
+/* Logo */
 
 .logo {
   display: inline-flex;
   align-items: center;
+
   gap: 12px;
 
   flex-shrink: 0;
-
-  font-weight: 700;
-  letter-spacing: 0.04em;
 }
 
 .logo__mark {
-  display: grid;
-  place-items: center;
-
   width: 34px;
   height: 34px;
+
+  display: grid;
+  place-items: center;
 
   flex-shrink: 0;
 
@@ -124,6 +143,7 @@ function closeMenu() {
   border-radius: 10px;
 
   background: rgb(103 232 249 / 5%);
+
   color: var(--color-cyan);
 }
 
@@ -141,48 +161,60 @@ function closeMenu() {
 
 .logo__text {
   font-size: 14px;
-  white-space: nowrap;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
 }
+
+/* Navigation */
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+
+  gap: 28px;
 
   margin-left: auto;
-  margin-right: 40px;
 }
 
 .nav__link {
-  color: var(--muted);
+  color: var(--color-text-muted);
 
   font-size: 14px;
+  font-weight: 500;
 
   transition: color 0.2s ease;
 }
 
 .nav__link:hover {
-  color: var(--ink);
+  color: var(--color-text);
 }
+
+/* Actions */
 
 .header__actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+
+  gap: 12px;
+
+  flex-shrink: 0;
 }
+
+/* Burger */
 
 .burger {
   display: none;
 
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
 
-  padding: 0;
+  padding: 9px;
 
-  border: 1px solid var(--line);
+  border: 1px solid var(--color-line);
   border-radius: 10px;
 
-  background: transparent;
+  background: rgb(255 255 255 / 5%);
 
   cursor: pointer;
 }
@@ -190,41 +222,73 @@ function closeMenu() {
 .burger span {
   display: block;
 
-  width: 18px;
+  width: 100%;
   height: 2px;
 
-  margin: 4px auto;
+  flex-shrink: 0;
 
-  border-radius: 2px;
+  border-radius: 999px;
 
-  background: var(--ink);
+  background: var(--color-text);
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.mobile-menu {
-  border-top: 1px solid var(--line);
+/* Burger → X */
 
-  background: rgb(7 10 18 / 98%);
+.burger--open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.burger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger--open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile menu */
+
+.mobile-menu {
+  border-bottom: 1px solid var(--color-line);
+
+  background: rgb(7 10 18 / 97%);
+  backdrop-filter: blur(18px);
 }
 
 .mobile-menu__content {
   display: flex;
   flex-direction: column;
+
   gap: 8px;
 
-  padding: 20px 0 24px;
+  padding-top: 16px;
+  padding-bottom: 24px;
 }
 
 .mobile-menu__link {
-  padding: 12px 0;
+  padding: 14px 0;
 
-  color: var(--muted);
+  border-bottom: 1px solid var(--color-line);
+
+  color: var(--color-text-muted);
 
   font-size: 16px;
+  font-weight: 500;
 }
 
 .mobile-menu__link:hover {
-  color: var(--ink);
+  color: var(--color-text);
 }
+
+.mobile-menu__demo {
+  margin-top: 12px;
+}
+
+/* Tablet */
 
 @media (max-width: 900px) {
   .nav {
@@ -232,17 +296,21 @@ function closeMenu() {
   }
 
   .burger {
-    display: block;
-  }
-
-  .header__actions > .button {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile */
+
+@media (max-width: 600px) {
   .logo__text {
     font-size: 12px;
+  }
+
+  .header__demo {
+    display: none;
   }
 }
 </style>
