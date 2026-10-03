@@ -4,19 +4,19 @@ const isMenuOpen = ref(false);
 const links = [
   {
     label: "О платформе",
-    href: "#about",
+    href: "/#about",
   },
   {
     label: "Возможности",
-    href: "#features",
+    href: "/#features",
   },
   {
     label: "Как работает",
-    href: "#how",
+    href: "/#how",
   },
   {
     label: "Безопасность",
-    href: "#security",
+    href: "/#security",
   },
   {
     label: "Персональные данные",
