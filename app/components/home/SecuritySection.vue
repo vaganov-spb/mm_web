@@ -1,28 +1,28 @@
 <script setup lang="ts">
 const securityItems = [
   {
-    title: "Разграничение доступа",
-    description: "Доступ только к разрешенным пользователю объектам.",
+    title: "Единое пространство для поиска и хранения",
+    description: "Платформа объединяет трехмерные модели, их обработанные версии, признаки и результаты анализа в единой системе. Это позволяет быстро находить аналоги и повторно использовать ранее полученные данные.",
   },
   {
-    title: "Защищенная передача",
-    description: "Передача файлов по защищенным сетевым протоколам.",
+    title: "Патентные источники",
+    description: "Для наполнения базы используются открытые источники Роспатента, ВОИС и Европейского патентного ведомства. Также предусмотрено подключение других национальных и региональных источников.",
   },
   {
-    title: "Контроль целостности",
-    description: "Контрольные суммы для обнаружения изменений.",
+    title: "Структурированное хранение",
+    description: "Исходные модели, нормализованные версии, признаковые представления и результаты анализа хранятся раздельно. Такой подход сокращает повторные вычисления и повышает производительность платформы.",
   },
   {
-    title: "Журналирование",
-    description: "Фиксация операций загрузки, сравнения и изменения данных.",
+    title: "Интеллектуальный поиск",
+    description: "Поиск аналогов выполняется по цифровым признаковым представлениям моделей. Найденные объекты дополнительно сравниваются и ранжируются по степени сходства.",
   },
   {
-    title: "Резервирование",
-    description: "Резервное копирование моделей, признаков и результатов.",
+    title: "Контроль доступа",
+    description: "Пользователи получают доступ только к разрешенным им объектам. Это обеспечивает защиту конфиденциальных данных и безопасную работу с пользовательскими 3D-моделями.",
   },
   {
-    title: "Масштабируемость",
-    description: "Расширение хранения и вычислительных ресурсов.",
+    title: "Защита и сохранность данных",
+    description: "Передача информации осуществляется по защищенным сетевым протоколам.",
   },
 ];
 </script>
@@ -34,8 +34,8 @@ const securityItems = [
         <p class="section-label">Безопасность</p>
 
         <h2 class="section-title">
-          3D-данные остаются
-          <span>под контролем</span>
+          База для трехмерных моделей
+          <span>и безопасность данных</span>
         </h2>
       </div>
 
@@ -56,7 +56,7 @@ const securityItems = [
           </div>
 
           <p class="security__visual-text">
-            Защищенное хранение и обработка 3D-данных
+            Единая база. Защищённые данные. Точный поиск.
           </p>
         </div>
 
@@ -98,15 +98,15 @@ const securityItems = [
 /* Visual */
 
 .security__visual {
-  min-height: 420px;
+  min-height: 320px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 20px;
 
-  padding: 48px;
+  padding: 32px;
 
   background:
     radial-gradient(circle at center, rgb(103 232 249 / 7%), transparent 50%),
@@ -118,8 +118,8 @@ const securityItems = [
 .security__pulse {
   position: relative;
 
-  width: 180px;
-  height: 180px;
+  width: 130px;
+  height: 130px;
 
   display: grid;
   place-items: center;
@@ -131,8 +131,8 @@ const securityItems = [
 
   position: absolute;
 
-  width: 110px;
-  height: 110px;
+  width: 84px;
+  height: 84px;
 
   border: 1px solid rgb(103 232 249 / 16%);
   border-radius: 50%;
@@ -150,8 +150,8 @@ const securityItems = [
   position: relative;
   z-index: 1;
 
-  width: 72px;
-  height: 72px;
+  width: 58px;
+  height: 58px;
 
   fill: none;
   stroke: var(--color-cyan);
@@ -190,9 +190,9 @@ const securityItems = [
 
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
 
-  padding: 22px;
+  padding: 16px;
 }
 
 .security__item-content {
@@ -200,8 +200,8 @@ const securityItems = [
 }
 
 .security__check {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 
   display: grid;
   place-items: center;
@@ -229,17 +229,17 @@ const securityItems = [
 .security__item-title {
   margin: 3px 0 0;
 
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.4;
 }
 
 .security__item-description {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
 
   color: var(--color-text-muted);
 
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 /* Animation */

@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="container footer__content">
       <div>
-        <strong class="footer__brand"> 3D INTELLIGENCE </strong>
+        <strong class="footer__brand"> 3D solution </strong>
 
         <p class="footer__text">
           Цифровая платформа интеллектуального сравнения 3D-моделей
@@ -10,9 +10,15 @@
       </div>
 
       <div class="footer__meta">
-        Проект № 106787
+        ООО «Тридекс»
         <br />
-        © 2026 [Название юридического лица]
+        ОГРН: 1257800108906
+        <br />
+        ИНН: 7816760859
+        <br />
+        <a href="mailto:murtazaliev.2013@mail.ru">murtazaliev.2013@mail.ru</a>
+        <br />
+        <NuxtLink to="/personal-data">Персональные данные</NuxtLink>
       </div>
     </div>
   </footer>

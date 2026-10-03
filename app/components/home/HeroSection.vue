@@ -4,7 +4,7 @@
       <div class="hero__info">
         <div class="hero__badge">
           <span class="hero__badge-dot" />
-          AI × 3D Engineering
+          AI × 3D comparison
         </div>
 
         <h1 class="hero-title hero__title">
@@ -14,9 +14,9 @@
         </h1>
 
         <p class="hero__description">
-          Цифровая платформа для загрузки, нормализации, интеллектуального
-          анализа, поиска ближайших аналогов и безопасного хранения трехмерных
-          моделей.
+          Цифровая платформа с технологией искусственного интеллекта для
+          сравнения с ближайшими аналогами, их нормализации и безопасного
+          хранения трехмерных моделей.
         </p>
 
         <div class="hero__actions">
@@ -26,10 +26,6 @@
 
           <a href="#how" class="button"> Как это работает </a>
         </div>
-
-        <p class="hero__meta">
-          Проект № 106787 · программа «Студенческий стартап»
-        </p>
       </div>
 
       <HeroModelPreview />

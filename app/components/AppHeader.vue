@@ -18,6 +18,10 @@ const links = [
     label: "Безопасность",
     href: "#security",
   },
+  {
+    label: "Персональные данные",
+    href: "/personal-data",
+  },
 ];
 
 function closeMenu() {
@@ -37,7 +41,7 @@ function closeMenu() {
           </svg>
         </span>
 
-        <span class="logo__text"> 3D INTELLIGENCE </span>
+        <span class="logo__text"> 3D solution </span>
       </a>
 
       <nav class="nav">

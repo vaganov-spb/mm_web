@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: "3D AI Platform — demo",
+  title: "3D solution — AI × 3D Engineering",
   description: "Цифровая платформа интеллектуального сравнения 3D-моделей",
 });
 </script>
@@ -8,12 +8,12 @@ useSeoMeta({
 <template>
   <main>
     <HeroSection />
-    <SupportSection />
     <AboutSection />
     <FeaturesSection />
     <PipelineSection />
     <SecuritySection />
     <DemoSection />
+    <SupportSection />
     <AppFooter />
   </main>
 </template>

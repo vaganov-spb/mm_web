@@ -8,11 +8,11 @@ const analogs = [
 
 <template>
   <div class="preview card">
-    <div class="preview__header">
+    <!-- <div class="preview__header">
       <span class="preview__title"> AI Model Analysis </span>
 
       <span class="preview__status"> Анализ выполняется </span>
-    </div>
+    </div> -->
 
     <div class="preview__body">
       <div class="preview__model">

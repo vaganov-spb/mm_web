@@ -42,6 +42,7 @@
 
 .demo .button {
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 @media (max-width: 900px) {

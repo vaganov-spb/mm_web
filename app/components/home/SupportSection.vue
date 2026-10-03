@@ -1,17 +1,23 @@
 <template>
   <section class="support">
     <div class="container support__content">
-      <div class="support__logos">
-        <div class="support__logo">Логотип Фонда</div>
-
-        <div class="support__logo">Логотип ПУТП</div>
-      </div>
-
       <p class="support__text">
         Проект реализован при поддержке Фонда содействия инновациям в рамках
         программы «Студенческий стартап» мероприятия «Платформа университетского
         технологического предпринимательства» федерального проекта «Технологии».
       </p>
+      <div class="support__logos" aria-label="Организации — партнеры проекта">
+        <div class="support__logo">
+          <img src="/fond_logo.png" alt="Фонд содействия инновациям" />
+        </div>
+
+        <div class="support__logo">
+          <img
+            src="/platform.png"
+            alt="Платформа университетского технологического предпринимательства"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -24,26 +30,30 @@
 }
 
 .support__content {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
   align-items: center;
-  gap: 48px;
+  gap: 24px;
 
   padding-block: 32px;
 }
 
 .support__logos {
-  display: flex;
-  gap: 16px;
-
-  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .support__logo {
-  width: 140px;
-  height: 64px;
+  min-width: 0;
+  width: 105px;
+  height: 82px;
 
   display: grid;
   place-items: center;
+
+  background: #f4f6f8;
+  overflow: hidden;
 
   border: 1px solid var(--color-line);
   border-radius: var(--radius-sm);
@@ -54,10 +64,17 @@
   text-align: center;
 }
 
-.support__text {
-  max-width: 720px;
+.support__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
 
-  margin: 0;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.support__text {
+  min-width: 0;
 
   color: var(--color-text-muted);
 
@@ -65,22 +82,15 @@
   line-height: 1.6;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 740px) {
   .support__content {
-    flex-direction: column;
-    align-items: flex-start;
-
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
-}
 
-@media (max-width: 600px) {
   .support__logos {
-    width: 100%;
-  }
-
-  .support__logo {
-    flex: 1;
+    grid-template-columns: repeat(2, fit-content(250px));
+    gap: 12px;
   }
 }
 </style>
